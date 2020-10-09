@@ -35,12 +35,11 @@
         }
 
     </style>
-    {% load static %}
-    <!-- <body style="background-color: whitesmoke;background-image: url('{% static "myapps/fondo2.jpg" %}');"> -->
-    <body style="background: linear-gradient(#eae7e7, #eae7e7 , transparent), url('{% static "myapps/fondo2.jpg" %}');">
+
+    <body style="background-color: whitesmoke;">
         
         <nav class="navbar fixed-top navbar-light bg-info">
-            <a style="margin-left: 120px;" class="navbar-brand font-weight-bold">KinectMe</a>
+            <a style="margin-left: 120px;" class="navbar-brand font-weight-bold" href="/home">KinectMe</a>
             <form class="form-inline">
                 <select name="selectDistance" id="selectDistance" class="form-control">
                     <option value="%">Search Within</option>
@@ -55,62 +54,29 @@
             </form>
         </nav>       
         
-        <br><br>
-        <div class="container">
-            </br></br>   
-            <div class='row'>
-                <div class="col">
-                        <div class="text">
-                            <h1 class="font-weight-bold"> Discover events near you </h1>
-                            <h1 class="font-weight-bold"> </h1>
-                        </div>
-                </div>
-            </div>         
-            <img src="{% static "myapps/Logo.png" %}" alt="My image"/>
-                </br>
-                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/signup'" >Sign Up</button>
-                </br></br>
-                  <button class="btn btn-primary myBtn" type="button" onclick="location.href='/accounts/login'">Log In</button>
-                  <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/update'">Update</button>
-
-                </div>
-        </ul>
-           {% if user.is_authenticated %}
+        <br><br><br><br><br><br>
+        <div class="container">    
+            {% if user.is_authenticated %}
              User: {{ user.get_username }}
              <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li> 
              
            {% endif %} 
-    </br></br>
-        <footer class="page-footer font-small blue pt-4">
-            <div class="container-fluid text-center text-md-left">
-              <div class="row">
-                <div class="col-md-6 mt-md-0 mt-3">
-                  <h5 class="text-uppercase">Want to know more!!</h5>
-                  <p>Checkout the links and share you experiences with us!!</p>
+            <div class="row">
+            
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table>
+                    {{ form.as_p }}
+                    </table>
+                    <button type="submit">Submit</button>
+                </form>
+            <div class="row">
+                <div class="col"></div>
+                <div class="col-sm-3">
                 </div>
-                <hr class="clearfix w-100 d-md-none pb-3">
-                <div class="col-md-3 mb-md-0 mb-3">
-                  <h5 class="text-uppercase">Contact</h5>
-                  <ul class="list-unstyled">
-                    <li>
-                      <a href="#!">Facebook</a>
-                    </li>
-                    <li>
-                      <a href="#!">Instagram</a>
-                    </li>
-                    <li>
-                      <a href="#!">Twitter</a>
-                    </li>
-                    <li>
-                      <a href="#!">E-mail</a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+                <div class="col"></div>
+                
             </div>
-            <div class="footer-copyright text-center py-3">© 2020 Copyright:
-              <a href="#"> KinectMe.com</a>
-            </div>
-          </footer>
+        </div>
     </body>
 </html>
