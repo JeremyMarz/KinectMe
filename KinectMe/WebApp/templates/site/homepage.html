@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+        <script src="https://use.fontawesome.com/3d5fa86801.js"></script>
+    </head>
+
+    <style>
+
+        .container{
+            text-align: center;
+        }
+
+        .myBtn{
+            color: whitesmoke;
+            background-color: black;
+            width: 250px;
+            height: 50px;
+        }
+
+        .myLogo{
+            align-items: center;
+            text-align:center;
+            align-content: center;
+        }
+
+    </style>
+    {% load static %}
+    <!-- <body style="background-color: whitesmoke;background-image: url('{% static "myapps/fondo2.jpg" %}');"> -->
+    <body style="background: linear-gradient(#eae7e7, #eae7e7 , transparent), url('{% static "myapps/fondo2.jpg" %}');">
+        
+        <nav class="navbar fixed-top navbar-light bg-info">
+            <a style="margin-left: 120px;" class="navbar-brand font-weight-bold">KinectMe</a>
+            <form class="form-inline">
+                <select name="selectDistance" id="selectDistance" class="form-control">
+                    <option value="%">Search Within</option>
+                    <option value="1">5 Miles</option>
+                    <option value="1">10 Miles</option>
+                    <option value="1">15 Miles</option>
+                    <option value="1">20 Miles</option>
+                </select>
+                &nbsp;&nbsp;
+                <input class="form-control mr-sm-2" type="search" placeholder="Find Events Near You" aria-label="Search">
+                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </nav>       
+        
+        <br><br>
+        <div class="container">
+            </br></br>   
+            <div class='row'>
+                <div class="col">
+                        <div class="text">
+                            <h1 class="font-weight-bold"> Discover events near you </h1>
+                            <h1 class="font-weight-bold"> </h1>
+                        </div>
+                </div>
+            </div>         
+            <img src="{% static "myapps/Logo.png" %}" alt="My image"/>
+                </br>
+                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/signup'" >Sign Up</button>
+                </br></br>
+                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/login'">Log In</button>
+        </div>
+    </br></br>
+        <footer class="page-footer font-small blue pt-4">
+            <div class="container-fluid text-center text-md-left">
+              <div class="row">
+                <div class="col-md-6 mt-md-0 mt-3">
+                  <h5 class="text-uppercase">Want to know more!!</h5>
+                  <p>Checkout the links and share you experiences with us!!</p>
+                </div>
+                <hr class="clearfix w-100 d-md-none pb-3">
+                <div class="col-md-3 mb-md-0 mb-3">
+                  <h5 class="text-uppercase">Contact</h5>
+                  <ul class="list-unstyled">
+                    <li>
+                      <a href="#!">Facebook</a>
+                    </li>
+                    <li>
+                      <a href="#!">Instagram</a>
+                    </li>
+                    <li>
+                      <a href="#!">Twitter</a>
+                    </li>
+                    <li>
+                      <a href="#!">E-mail</a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="footer-copyright text-center py-3">© 2020 Copyright:
+              <a href="#"> KinectMe.com</a>
+            </div>
+          </footer>
+    </body>
+</html>

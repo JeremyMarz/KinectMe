@@ -1,0 +1,59 @@
+/* Universal Styles */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	color: #000000;
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
+}
+
+.container{
+	margin-left:0%;
+	margin-right:0%;
+}
+
+/*Navigations*/
+.main-nav {
+	display: flex;
+	background-color: rgba(25,20,20,0.65);
+	align-items: center;
+	justify-content: center;
+	height: auto;
+	width: 100%;
+	padding: 20px 0;
+	position: fixed;
+	z-index: 100;
+}
+
+.main-nav ul {
+	display: flex;
+}
+
+.main-nav ul.nav-options {
+	flex: 1;
+	margin-left: 525px;
+	width: 100px;
+	font-size: 15.8px;
+	margin-top: 1px;
+	font-weight: bold;
+}
+
+.white-text {
+	color: #fff;
+}
+
+.grey-text {
+	color:#dcdcdc;
+}
+
+img.logo {
+	margin-left: 10px;
+	width: 5%;
+}
