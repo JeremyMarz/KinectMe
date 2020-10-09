@@ -3,9 +3,8 @@ from . import views
 
 #from KinectMe.WebApp.views import dashboard
 
-app_name = 'webapp'
+app_name = 'home'
 urlpatterns = [
-    path('', views.Dash.as_view(), name='Dash'),
-    #path('admin/', admin.site.urls),
-    #path('site/', dashboard)
+    path('', views.homepage, name='homepage'),
+    path('signup/', views.Add, name='signup'),
 ]

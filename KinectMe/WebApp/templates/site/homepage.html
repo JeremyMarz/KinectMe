@@ -68,10 +68,16 @@
             </div>         
             <img src="{% static "myapps/Logo.png" %}" alt="My image"/>
                 </br>
-                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/signup'" >Sign Up</button>
+                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/signup'" >Sign Up</button>
                 </br></br>
-                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/login'">Log In</button>
+                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/accounts/login'">Log In</button>
         </div>
+        </ul>
+           {% if user.is_authenticated %}
+             User: {{ user.get_username }}
+             <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li> 
+             
+           {% endif %} 
     </br></br>
         <footer class="page-footer font-small blue pt-4">
             <div class="container-fluid text-center text-md-left">
