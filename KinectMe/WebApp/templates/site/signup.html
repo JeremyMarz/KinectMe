@@ -57,45 +57,19 @@
         <br><br><br><br><br><br>
         <div class="container">
             <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <label for="signupNameTxt">Your Name</label>
-                    <input type="text" id="signupNameTxt" class="form-control">
-                </div>
-                <div class="col"></div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <label for="signupNameTxt">Email Address</label>
-                    <input type="text" id="signupEmailTxt" class="form-control">
-                </div>
-                <div class="col"></div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <label for="signupNameTxt">Password</label>
-                    <input type="password" maxlength="12" minlength="6" id="signupPwTxt"  class="form-control">
-                </div>
-                <div class="col"></div>
-            </div>
-            <br/>
-            <div class="row">
-                <div class="col"></div>
-                <div class="col">
-                    <input type="submit" class="btn btn-primary myBtn" value="Continue" style="width:100%;">
-                    <hr/>
-                </div>
-                <div class="col"></div>
-            </div>
-            
+                <form action="" method="POST">
+                    {% csrf_token %}
+                    <table>
+                    {{ form.as_p }}
+                    </table>
+                    <button type="submit">Submit</button>
+                </form>
             <div class="row">
                 <div class="col"></div>
                 <div class="col-sm-3">
+                    {% if user.authenticated %}
                     Already a member? <a href='/login'>Log in.</a>
+                    {% endif %} 
                 </div>
                 <div class="col"></div>
             </div>
