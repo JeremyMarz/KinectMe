@@ -126,4 +126,4 @@ STATICFILES_DIRS = [
     '/var/www/static/',
 ]
 
-LOGIN_REDIRECT_URL = '/home/signup'
+LOGIN_REDIRECT_URL = '/home/'

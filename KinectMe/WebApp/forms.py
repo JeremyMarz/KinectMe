@@ -9,3 +9,4 @@ class AddForm(forms.Form):
         last_name = forms.CharField(label="Last Name", widget=forms.TextInput(), required = True)
         email = forms.CharField(label="Email Address", widget=forms.TextInput(), required = True)
         age = forms.CharField(label="Age", widget=forms.TextInput(), required = True)
+        sport = forms.ModelMultipleChoiceField(label='Sports',widget = forms.CheckboxSelectMultiple, queryset=Activities.objects.all())

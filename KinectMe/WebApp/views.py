@@ -7,6 +7,7 @@ from django.template.defaultfilters import slugify
 from django.contrib.auth.decorators import login_required
 from WebApp.forms import *
 from django.urls import reverse
+from django.contrib.auth import logout
 
 
 def homepage(request):
@@ -21,8 +22,16 @@ def signup(request):
 def login(request):
     return render(request, 'registration/login.html')
 
-@login_required(login_url='/accounts/login/')
+
+def logout_view(request):
+    logout(request)
+
+
+#@logout_required(login_url='/accounts/login/')
 def Add(request):
+
+    logout_view(request)
+    
     form = AddForm(request.POST)
     if request.method == 'POST':
         form = AddForm(request.POST)
