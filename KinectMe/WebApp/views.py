@@ -19,6 +19,9 @@ def homepage(request):
 def signup(request):
     return render(request, 'site/signup.html')
 
+def events(request):
+    return render(request, 'site/event_description.html')
+
 def login(request):
     return render(request, 'registration/login.html')
 
@@ -30,15 +33,12 @@ def logout_view(request):
 def Update(request):
     user = request.user
     profile = Profile.objects.get(user_name=user.username)
-    form = UpdateForm(initial = { 'user_name': user.username, 'password': user.password, 'first_name': profile.first_name, 'last_name': profile.last_name, 'email': profile.email, 
+    form = UpdateForm(initial = {'first_name': profile.first_name, 'last_name': profile.last_name, 'email': profile.email, 
         'age': profile.age, 'sport': profile.sport.all() } )
 
     if request.method == 'POST':
         form = UpdateForm(request.POST)
         if form.is_valid():
-            user.username = form.cleaned_data['user_name']
-            password = form.cleaned_data['password']
-            user.set_password(password)
             profile.first_name = form.cleaned_data['first_name']
             profile.last_name = form.cleaned_data['last_name']
             profile.email = form.cleaned_data['email']
@@ -50,9 +50,9 @@ def Update(request):
             return HttpResponseRedirect(reverse('home:homepage'))
 
     else:
-        form = UpdateForm(initial = { 'user_name': user.username, 'password': user.password, 'first_name': profile.first_name, 'last_name': profile.last_name, 'email': profile.email, 
+        form = UpdateForm(initial = { 'first_name': profile.first_name, 'last_name': profile.last_name, 'email': profile.email, 
         'age': profile.age, 'sport': profile.sport.all() } )
-    return render(request, "site/update.html", {'form': form, 'user_name': user.username, 'password': user.password, 'first_name': profile.first_name, 'last_name': profile.last_name, 
+    return render(request, "site/update.html", {'form': form, 'user_name': user.username, 'first_name': profile.first_name, 'last_name': profile.last_name, 
     'email': profile.email, 'age': profile.age, 'sport': profile.sport.all() })
 
 

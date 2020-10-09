@@ -67,11 +67,17 @@
                 </div>
             </div>         
             <img src="{% static "myapps/Logo.png" %}" alt="My image"/>
-                </br>
+          </br>
+                  {% if user.is_authenticated %}
+                  <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/update'">Update</button>
+                  <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/events'">Events</button>
+
+                  {% else %}
+                  </br>
                     <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/signup'" >Sign Up</button>
                 </br></br>
                   <button class="btn btn-primary myBtn" type="button" onclick="location.href='/accounts/login'">Log In</button>
-                  <button class="btn btn-primary myBtn" type="button" onclick="location.href='/home/update'">Update</button>
+                  {% endif %} 
 
                 </div>
         </ul>

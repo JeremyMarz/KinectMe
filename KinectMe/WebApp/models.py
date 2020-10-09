@@ -37,7 +37,7 @@ class Profile(models.Model):
     email = models.CharField(max_length=40)
     age = models.CharField(max_length=2)
     sport = models.ManyToManyField(Activities)
-
+    
 
     def __str__(self):
         return self.user_name
