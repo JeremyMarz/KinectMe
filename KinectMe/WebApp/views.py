@@ -31,7 +31,7 @@ def logout_view(request):
 def Add(request):
 
     logout_view(request)
-    
+
     form = AddForm(request.POST)
     if request.method == 'POST':
         form = AddForm(request.POST)
@@ -39,7 +39,8 @@ def Add(request):
             user_name = form.cleaned_data['user_name']
             User.objects.create(username=user_name)
             user = User.objects.get(username=user_name)
-            user.password = form.cleaned_data['password']
+            password = form.cleaned_data['password']
+            user.set_password(password)
             user.save()
             Profile.objects.create(user_name=user_name)
             profile = Profile.objects.get(user_name=user.username)
