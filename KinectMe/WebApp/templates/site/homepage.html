@@ -2,6 +2,17 @@
 <html>
     <head>
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+        <!-- Google Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+        <!-- Bootstrap core CSS -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+        <!-- Material Design Bootstrap -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+        <script src="https://use.fontawesome.com/3d5fa86801.js"></script>
     </head>
 
     <style>
@@ -19,43 +30,48 @@
 
         .myLogo{
             align-items: center;
+            text-align:center;
+            align-content: center;
         }
 
     </style>
-
-    <body style="background-color: whitesmoke;">
+    {% load static %}
+    <!-- <body style="background-color: whitesmoke;background-image: url('{% static "myapps/fondo2.jpg" %}');"> -->
+    <body style="background: linear-gradient(#eae7e7, #eae7e7 , transparent), url('{% static "myapps/fondo2.jpg" %}');">
         
-        <nav class="navbar navbar-light bg-primary justify-content-between">
-            <a class="navbar-brand">KinectMe</a>
+        <nav class="navbar fixed-top navbar-light bg-info">
+            <a style="margin-left: 120px;" class="navbar-brand font-weight-bold">KinectMe</a>
             <form class="form-inline">
+                <select name="selectDistance" id="selectDistance" class="form-control">
+                    <option value="%">Search Within</option>
+                    <option value="1">5 Miles</option>
+                    <option value="1">10 Miles</option>
+                    <option value="1">15 Miles</option>
+                    <option value="1">20 Miles</option>
+                </select>
+                &nbsp;&nbsp;
                 <input class="form-control mr-sm-2" type="search" placeholder="Find Events Near You" aria-label="Search">
-                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                 <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
             </form>
-            </nav>
+        </nav>       
         
-        <div class="text">
-            <div class="col-md-10">
-                <div class="row">
-                    <div class="text">
-                        <div class="col-4"></div>
-                        <h1 class="font-weight-bold"> Discover </h1>
-                        <h1 class="font-weight-bold"> events near you </h1>
-                    </div>
+        <br><br>
+        <div class="container">
+            </br>
+            <div class='row'>
+                <div class="col">
+                        <div class="text">
+                            <h1 class="font-weight-bold"> Discover<br/>events near you </h1>
+                            <h1 class="font-weight-bold"> </h1>
+                        </div>
                 </div>
             </div>
-
-        </div>
-
-        <div class="container">
-            </br></br></br></br> 
-            {% load static %}
+            </br>            
             <img src="{% static "myapps/Logo.png" %}" alt="My image"/>
-                </br></br></br>
-                    <button class="btn btn-primary myBtn" type="button">Sign Up</button>
+                </br>
+                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/signup'" >Sign Up</button>
                 </br></br>
-                    <button class="btn btn-primary myBtn" type="button">Log In</button>
-                </ul>    
-            </nav>
+                    <button class="btn btn-primary myBtn" type="button" onclick="location.href='/login'">Log In</button>
         </div>
     </body>
 </html>
